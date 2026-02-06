@@ -7,5 +7,5 @@ const Footer = () => {
         </footer>
     );
 };
-
+//yoo
 export default Footer;
