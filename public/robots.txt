@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://uniteall.vercel.app/sitemap.xml
