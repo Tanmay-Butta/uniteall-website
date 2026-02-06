@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary-50: #f0f9ff;
+  --color-primary-100: #e0f2fe;
+  --color-primary-500: #0ea5e9;
+  --color-primary-600: #0284c7;
+  --color-primary-700: #0369a1;
+  --color-primary-900: #0c4a6e;
+
+  --color-secondary-500: #6366f1;
+  --color-secondary-600: #4f46e5;
+
+  /* Deep Dark Theme - Almost Black */
+  --color-dark-950: #020617;
+  /* Very deep slate/black */
+  --color-dark-900: #0a0a0a;
+  /* Main background */
+  --color-dark-800: #121212;
+  /* Secondary background */
+  --color-dark-card: rgba(20, 20, 20, 0.6);
+  /* Translucent card */
+
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Outfit', sans-serif;
+
+  --animate-float: float 6s ease-in-out infinite;
+}
+
+@variant light (&:where(.light, .light *));
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-dark-900 text-gray-100 font-sans antialiased transition-colors duration-300;
+  }
+
+  /* Light Theme Overrides */
+  :root.light body {
+    @apply bg-gray-50 text-gray-900;
+  }
+
+  /* Adaptive Variables */
+  :root {
+    --color-text-adaptive: #ffffff;
+  }
+
+  :root.light {
+    --color-text-adaptive: #111827;
+    /* gray-900 */
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-dark-card backdrop-blur-xl border border-white/5 shadow-xl;
+  }
+
+  :root.light .glass {
+    @apply bg-white/70 border-gray-200/50 shadow-lg backdrop-blur-xl;
+  }
+
+  .glass-hover {
+    @apply hover:bg-white/5 transition-all duration-300;
+  }
+
+  :root.light .glass-hover {
+    @apply hover:bg-black/5;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
